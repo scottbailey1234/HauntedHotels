@@ -5,11 +5,13 @@
  */
 package hauntedhotels;
 
+import byui.cit260.hauntedHotels.model.Challenge;
 import byui.cit260.hauntedHotels.model.Player;
 import byui.cit260.hauntedHotels.model.Character;
 import byui.cit260.hauntedHotels.model.Game; 
 import byui.cit260.hauntedHotels.model.Map;
 import byui.cit260.hauntedHotels.model.InventoryItems; 
+import byui.cit260.hauntedHotels.model.RoomScene;
 
 
 /**
@@ -65,5 +67,27 @@ public class HauntedHotels {
         
         String inventoryInfo = gameInventory.toString();
         System.out.println(inventoryInfo);
+        
+        Challenge challengeOne = new Challenge();
+        
+        challengeOne.setChallengeName("Puzzle1");
+        challengeOne.setChallengeType("Puzzle");
+        challengeOne.setChallengeProblem("Some text here");
+        challengeOne.setChallengeSolution("Answer to the problem");
+        
+        String challengeInfo = challengeOne.toString();
+        System.out.println(challengeInfo);
+        
+        RoomScene roomSceneOne = new RoomScene();
+        
+        roomSceneOne.setRoomNumber(12);
+        roomSceneOne.setRoomBackgroundInfo("This room is a penthouse");
+        roomSceneOne.setRoomChallenge(20);
+        roomSceneOne.setBlockedLocation("Names of blocked locations");
+        roomSceneOne.setDisplaySymbol("Image representing a location");
+        
+        String roomSceneInfo = roomSceneOne.toString();
+        System.out.println(roomSceneInfo);
+        
     }
 }
