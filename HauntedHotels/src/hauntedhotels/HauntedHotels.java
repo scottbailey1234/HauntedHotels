@@ -10,7 +10,7 @@ import byui.cit260.hauntedHotels.model.Character;
 import byui.cit260.hauntedHotels.model.Game; 
 import byui.cit260.hauntedHotels.model.Map;
 import byui.cit260.hauntedHotels.model.InventoryItems; 
-
+import byui.cit260.hauntedHotels.model.HotelLocation; 
 
 /**
  *
@@ -65,5 +65,16 @@ public class HauntedHotels {
         
         String inventoryInfo = gameInventory.toString();
         System.out.println(inventoryInfo);
+        
+        HotelLocation gameHotelLocation = new HotelLocation();
+        
+        gameHotelLocation.setRow(15);
+        gameHotelLocation.setColumn(20);
+        gameHotelLocation.setVisited(10);
+        gameHotelLocation.setAmountRemaining(15);
+        
+        String locationInfo = gameHotelLocation.toString();
+        System.out.println(locationInfo);
     }
 }
+
