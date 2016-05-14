@@ -5,12 +5,15 @@
  */
 package hauntedhotels;
 
+import byui.cit260.hauntedHotels.model.Challenge;
 import byui.cit260.hauntedHotels.model.Player;
 import byui.cit260.hauntedHotels.model.Character;
 import byui.cit260.hauntedHotels.model.Game; 
+import byui.cit260.hauntedHotels.model.HotelLocation;
 import byui.cit260.hauntedHotels.model.Map;
 import byui.cit260.hauntedHotels.model.InventoryItems; 
-import byui.cit260.hauntedHotels.model.HotelLocation; 
+import byui.cit260.hauntedHotels.model.RoomScene;
+
 
 /**
  *
@@ -66,15 +69,38 @@ public class HauntedHotels {
         String inventoryInfo = gameInventory.toString();
         System.out.println(inventoryInfo);
         
-        HotelLocation gameHotelLocation = new HotelLocation();
+        Challenge challengeOne = new Challenge();
         
-        gameHotelLocation.setRow(15);
-        gameHotelLocation.setColumn(20);
-        gameHotelLocation.setVisited(10);
-        gameHotelLocation.setAmountRemaining(15);
+        challengeOne.setChallengeName("Puzzle1");
+        challengeOne.setChallengeType("Puzzle");
+        challengeOne.setChallengeProblem("Some text here");
+        challengeOne.setChallengeSolution("Answer to the problem");
         
-        String locationInfo = gameHotelLocation.toString();
+        String challengeInfo = challengeOne.toString();
+        System.out.println(challengeInfo);
+        
+        RoomScene roomSceneOne = new RoomScene();
+        
+        roomSceneOne.setRoomNumber(12);
+        roomSceneOne.setRoomBackgroundInfo("This room is a penthouse");
+        roomSceneOne.setRoomChallenge(20);
+        roomSceneOne.setBlockedLocation("Names of blocked locations");
+        roomSceneOne.setDisplaySymbol("Image representing a location");
+        
+        String roomSceneInfo = roomSceneOne.toString();
+        System.out.println(roomSceneInfo);
+        
+        
+        HotelLocation location = new HotelLocation();
+        
+        location.setRow(15);
+        location.setColumn(20);
+        location.setVisited(20);
+        location.setAmountRemaining(5);
+        
+        String locationInfo = location.toString();
         System.out.println(locationInfo);
+        
     }
 }
 
