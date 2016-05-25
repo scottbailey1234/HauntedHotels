@@ -11,7 +11,7 @@ import byui.cit260.hauntedHotels.model.Character;
 import byui.cit260.hauntedHotels.model.Game; 
 import byui.cit260.hauntedHotels.model.HotelLocation;
 import byui.cit260.hauntedHotels.model.Map;
-import byui.cit260.hauntedHotels.model.InventoryItems; 
+import byui.cit260.hauntedHotels.model.InventoryItems;
 import byui.cit260.hauntedHotels.model.RoomScene;
 
 
