@@ -25,9 +25,6 @@ public class ChallengeControl {
         double g = 10*groupDiscount;
         double p = rms*75;
         double diff = (p-g);
-        double g = rms*groupDiscount;
-        double p = 8*75;
-        double differencePos = p-g;
         
         return diff;
     }
