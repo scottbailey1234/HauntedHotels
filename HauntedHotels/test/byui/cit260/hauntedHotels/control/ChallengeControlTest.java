@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author scottbailey1234
+ * @author Acer
  */
 public class ChallengeControlTest {
     
@@ -24,11 +24,12 @@ public class ChallengeControlTest {
     public void testCalcDisplacement() {
         System.out.println("calcDisplacement"); 
         
+        
         /*******************
          * Test Case #1
          ******************/
         System.out.println("\tTest Case Valid #1");
-        
+               
         //input values for test case 1
         double groupDiscount = 70;
         double rms = 8;
