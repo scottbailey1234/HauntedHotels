@@ -206,5 +206,108 @@ public class ChallengeControlTest {
         //compare expected return value with actual value returned
         assertEquals(expResult, result, 0.0);
     }
+
+    
+    /**
+     * SCOTT CONTROL TEST FOR CALCREVPAR COMPLEX EQUATION: Test of calcRevpar method, of class ChallengeControl.
+     */
+    @Test
+    public void testCalcRevpar() {
+        
+
+        System.out.println("calcRevpar");
+        
+        /*******************
+         * Test Case #1
+         ******************/
+        System.out.println("\tTest Case Valid #1");
+        
+        //input values for test case 1
+        double totRev = 5000000;
+        
+        //create instance of InventoryControl class
+        ChallengeControl instance = new ChallengeControl();
+        
+        //expected output returned value
+        double expResult = 136;
+        
+        //call function to run test
+        double result = instance.calcRevpar((int) totRev);
+        
+        //compare expected return value with actual value returned
+        assertEquals(expResult, result, 0.0);
+        
+        
+        /*******************
+         * Test Case #2
+         ******************/
+        System.out.println("\tTest Case Invalid #2");
+        
+        //input values for test case 2
+        totRev = 101000000;
+        
+        //expected output returned value
+        expResult = -1;
+        
+        //call function to run test
+        result = instance.calcRevpar((int) totRev);
+        
+        //compare expected return value with actual value returned
+        assertEquals(expResult, result, 0.0);
+        
+        
+        /*******************
+         * Test Case #3
+         ******************/
+        System.out.println("\tTest Case Invalid #3");
+        
+        //input values for test case 3
+        totRev = -1;
+        
+        //expected output returned value
+        expResult = -1;
+        
+        //call function to run test
+        result = instance.calcRevpar((int) totRev);
+        
+        //compare expected return value with actual value returned
+        assertEquals(expResult, result, 0.0);
+
+                
+        /*******************
+         * Test Case #4
+         ******************/
+        System.out.println("\tTest Case Boundry #4");
+        
+        //input values for test case 4
+        totRev = 100000000;
+        
+        //expected output returned value
+        expResult = 2739;
+        
+        //call function to run test
+        result = instance.calcRevpar((int) totRev);
+        
+        //compare expected return value with actual value returned
+        assertEquals(expResult, result, 0.0);
+        
+        
+        /*******************
+         * Test Case #5
+         ******************/
+        System.out.println("\tTest Case Boundry #5");
+        
+        //input values for test case 5
+        totRev = 0;
+        
+        //expected output returned value
+        expResult = -1;
+        
+        //call function to run test
+        result = instance.calcRevpar((int) totRev);
+        
+        //compare expected return value with actual value returned
+        assertEquals(expResult, result, 0.0);
+    }
     
 }

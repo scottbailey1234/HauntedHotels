@@ -11,6 +11,7 @@ package byui.cit260.hauntedHotels.control;
  */
 public class ChallengeControl {
 
+    // calculate Displacement
     public double calcDisplacement(double groupDiscount, double rms) {
 
         if (groupDiscount < 40 || groupDiscount >= 75) { // discount is out of range?
@@ -19,13 +20,26 @@ public class ChallengeControl {
                          
         if (rms <1 || rms >10) { // individual room entry is out of range?
                 return -1;
-        }
-        
+        }     
         
         double g = 10*groupDiscount;
         double p = rms*75;
         double diff = (p-g);
         
         return diff;
+    }
+        
+    // calculate Revpar    
+    public double calcRevpar(int totRev) {
+        
+        if (totRev < 1 || totRev > 100000000) { // total revenue is out of range?
+                return -1;
+        }
+
+        int r = 365 * 100;
+        int revpar = totRev / r;
+        
+        return revpar;
+
     }
 }
