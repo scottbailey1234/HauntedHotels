@@ -309,5 +309,80 @@ public class ChallengeControlTest {
         //compare expected return value with actual value returned
         assertEquals(expResult, result, 0.0);
     }
+
+    /**
+     * Test of rateFloor method, of class ChallengeControl.
+     */
+    @Test
+    public void testRateFloor() {
+        System.out.println("rateFloor");
+        /*******************
+         * Test Case #1
+         ******************/
+        System.out.println("\tTest Case Valid #1");
+        
+        double percentBook = 80.0;
+      
+        double expResult = 56.0;
+        
+        ChallengeControl instance = new ChallengeControl();
+        
+        double result = instance.rateFloor(percentBook);
+        
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+        
+        /*******************
+         * Test Case #2
+         ******************/
+        System.out.println("\tTest Case Invalid #2");
+        
+        percentBook = -5.0;
+      
+        expResult = -1;
+                     
+        result = instance.rateFloor(percentBook);
+        
+        assertEquals(expResult, result, 0.0);
+        
+        /*******************
+         * Test Case #3
+         ******************/
+        System.out.println("\tTest Case Invalid #3");
+        
+        percentBook = 150.0;
+      
+        expResult = -1;
+             
+        result = instance.rateFloor(percentBook);
+        
+        assertEquals(expResult, result, 0.01);
+        
+        /*******************
+         * Test Case #4
+         ******************/
+        System.out.println("\tTest Case Boundary #4");
+        
+        percentBook = 71.43;
+      
+        expResult = 50.0;
+              
+        result = instance.rateFloor(percentBook);
+        
+        assertEquals(expResult, result, 0.01);
+        
+        /*******************
+         * Test Case #5
+         ******************/
+        System.out.println("\tTest Case Boundary #5");
+        
+        percentBook = 85.71;
+      
+        expResult = 60.0;
+              
+        result = instance.rateFloor(percentBook);
+        
+        assertEquals(expResult, result, 0.01);
+    }
     
 }

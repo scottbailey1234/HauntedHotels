@@ -42,4 +42,17 @@ public class ChallengeControl {
         return revpar;
 
     }
+    
+    public double rateFloor(double percentBook){
+        if (percentBook < 0 || percentBook >100) {
+            return -1;
+        }
+
+        double floorRate = ((100 * 70) * (percentBook / 100))/100;
+        
+        return floorRate;
+            
+    }
+    
+    
 }
