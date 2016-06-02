@@ -5,10 +5,26 @@
  */
 package byui.cit260.hauntedHotels.control;
 
+import byui.cit260.hauntedHotels.model.Player;
+import hauntedhotels.HauntedHotels;
+
 /**
  *
  * @author scottbailey1234
  */
 public class GameControl {
+
+    public static Player createPlayer(String name) {
+        if (name == null) {
+            return null;
+        }
+        
+        Player player = new Player();
+        player.setName(name);
+        
+        HauntedHotels.setPlayer(player); // save the player
+        
+        return player;
+    }
     
 }
