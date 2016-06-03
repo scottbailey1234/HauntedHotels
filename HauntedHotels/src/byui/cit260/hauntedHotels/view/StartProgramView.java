@@ -77,7 +77,7 @@ public class StartProgramView {
             value = keyboard.nextLine(); // get next line typed on keyboard
             value = value.trim(); // trim off leading and trailing blanks
             
-            if (value.length()< 1) { // value is blank
+            if (value.length() < 1) { // value is blank
                 System.out.println("\nInvalid value: value can not be blank");
                 continue;
             }
@@ -89,7 +89,7 @@ public class StartProgramView {
     }
 
     private boolean doAction(String playersName) {
-        if (playersName.length()<2) {
+        if (playersName.length() < 2) {
             System.out.println("\nInvalid players name: "
                     + "The name must be greater than one character in length");
             return false;
@@ -105,7 +105,8 @@ public class StartProgramView {
         
         //display next view
         this.displayNextView(player);
-        return true;
+        
+        return true; // success !
           
     }
 
@@ -117,7 +118,7 @@ public class StartProgramView {
                           + "\n============================================="
                           );
         
-        // Creat MainMenuView object
+        // Create MainMenuView object
         MainMenuView mainMenuView = new MainMenuView();
                 
         // Display the main menu view

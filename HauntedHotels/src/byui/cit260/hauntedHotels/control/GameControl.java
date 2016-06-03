@@ -8,6 +8,7 @@ package byui.cit260.hauntedHotels.control;
 import byui.cit260.hauntedHotels.model.Player;
 import hauntedhotels.HauntedHotels;
 
+
 /**
  *
  * @author scottbailey1234
@@ -25,6 +26,10 @@ public class GameControl {
         HauntedHotels.setPlayer(player); // save the player
         
         return player;
+    }
+
+    public static void createNewGame(Player player) {
+        System.out.println("\n*** createNewGame stub function called ***");
     }
     
 }

@@ -5,40 +5,35 @@
  */
 package byui.cit260.hauntedHotels.view;
 
-import byui.cit260.hauntedHotels.control.GameControl;
-import hauntedhotels.HauntedHotels;
 import java.util.Scanner;
 
 /**
  *
- * @author Acer
+ * @author scottbailey1234
  */
-public class MainMenuView {
-    
+public class HelpMenuView {
+        
     private String menu;
     private String promptMessage;
-   
-    public MainMenuView() {
-     this.menu = "\n"
+    
+    public HelpMenuView() {
+            this.menu = "\n"
                + "\n--------------------------------------------"
-               + "\n| Main Menu                                |"
+               + "\n| Help Menu                                |"
                + "\n--------------------------------------------"
-               + "\nN - Start new game"
-               + "\nG - Get and start saved game"
-               + "\nH - Get help on how to play the game"
-               + "\nS - Save game"
+               + "\nG - What is the goal of the game?"
+               + "\nW - How to win"
+               + "\nE - Hotel complex equation information"
                + "\nQ - Quit"
                + "\n--------------------------------------------";
     }
-   
-
-    public void displayMainMenuView() {
+    public void displayHelpMenuView() {
         
         boolean done = false; // set flag to not done
         do {
         
             // prompt for and get players name
-            String menuOption = this.getMenuOption();
+            String menuOption = this.getHelpMenuOption();
             if (menuOption.toUpperCase().equals("Q")) // user wants to quit
                 return; // exit the game
             
@@ -47,7 +42,7 @@ public class MainMenuView {
         } while (!done); 
     }
 
-    private String getMenuOption() {
+    private String getHelpMenuOption() {
         
         
         Scanner keyboard = new Scanner(System.in); //get infile for keyboard
@@ -76,17 +71,15 @@ public class MainMenuView {
         choice = choice.toUpperCase(); // convert choice to upper case
         
         switch (choice) {
-            case "N": // create and start a new game
-                this.startNewGame();
+
+            case "G": // display goal of the game
+                this.displayGoal();
                 break;
-            case "G": // get and start an existing game
-                this.startExistingGame();
+            case "W": // display how to win the game
+                this.displayHow();
                 break;
-            case "H": // display the help menu
-                this.displayHelpMenu();
-                break;
-            case "S": // save the current game
-                this.saveGame();
+            case "E": // display complex equation help
+                this.displayComplexHelp();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -96,31 +89,16 @@ public class MainMenuView {
         return false;
     }
 
-    private void startNewGame() {
-        // create a new game
-        GameControl.createNewGame(HauntedHotels.getPlayer());
-        
-        //display the game menu
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
-}
-    
-    private void startExistingGame() {
-        System.out.println("*** startExistingGame function called ***");
+    private void displayGoal() {
+        System.out.println("*** displayGoal function called ***");
     }
 
-    private void displayHelpMenu() {
-        // Create HelpMenuView object
-        HelpMenuView helpMenuView = new HelpMenuView();
-                
-        // Display the help menu view
-        helpMenuView.displayHelpMenuView();
-  
+    private void displayHow() {
+        System.out.println("*** displayHow function called ***");
     }
 
-
-    private void saveGame() {
-        System.out.println("*** saveExistingGame function called ***");
+    private void displayComplexHelp() {
+        System.out.println("*** displayHelpMenu function called ***");
     }
     
 }
