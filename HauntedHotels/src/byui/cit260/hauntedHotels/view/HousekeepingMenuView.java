@@ -5,40 +5,36 @@
  */
 package byui.cit260.hauntedHotels.view;
 
-import byui.cit260.hauntedHotels.control.GameControl;
-import hauntedhotels.HauntedHotels;
 import java.util.Scanner;
 
 /**
  *
- * @author Acer
+ * @author scottbailey1234
  */
-public class MainMenuView {
+public class HousekeepingMenuView {
     
     private String menu;
     private String promptMessage;
-   
-    public MainMenuView() {
-     this.menu = "\n"
+    
+    public HousekeepingMenuView() {
+            this.menu = "\n"
                + "\n--------------------------------------------"
-               + "\n| Main Menu                                |"
+               + "\n| Housekeeping Menu                                |"
                + "\n--------------------------------------------"
-               + "\nN - Start new game"
-               + "\nG - Get and start saved game"
-               + "\nH - Get help on how to play the game"
-               + "\nS - Save game"
+               + "\nD - Spray Disinfectant"
+               + "\nT - Restock Towels"
+               + "\nS - Replace Sheets"
+               + "\nF - Vacuum Floor"
                + "\nQ - Quit"
                + "\n--------------------------------------------";
     }
-   
-
-    public void displayMainMenuView() {
+    public void displayHousekeepingMenuView() {
         
         boolean done = false; // set flag to not done
         do {
         
             // prompt for and get players name
-            String menuOption = this.getMenuOption();
+            String menuOption = this.getHousekeepingMenuOption();
             if (menuOption.toUpperCase().equals("Q")) // user wants to quit
                 return; // exit the game
             
@@ -47,7 +43,7 @@ public class MainMenuView {
         } while (!done); 
     }
 
-    private String getMenuOption() {
+    private String getHousekeepingMenuOption() {
         
         
         Scanner keyboard = new Scanner(System.in); //get infile for keyboard
@@ -76,17 +72,18 @@ public class MainMenuView {
         choice = choice.toUpperCase(); // convert choice to upper case
         
         switch (choice) {
-            case "N": // create and start a new game
-                this.startNewGame();
+
+            case "D": // Spray Disinfectant
+                this.displayDisinfectant();
                 break;
-            case "G": // get and start an existing game
-                this.startExistingGame();
+            case "T": // Restock Towels
+                this.displayTowels();
                 break;
-            case "H": // display the help menu
-                this.displayHelpMenu();
+            case "S": // Replace Sheets
+                this.displaySheets();
                 break;
-            case "S": // save the current game
-                this.saveGame();
+            case "F": // Vaccum Floor
+                this.displayFloor();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -96,31 +93,23 @@ public class MainMenuView {
         return false;
     }
 
-    private void startNewGame() {
-    /*    // create a new game
-        GameControl.createNewGame(HauntedHotels.getPlayer());*/
-        
-        //display the game menu
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+    private void displayDisinfectant() {
+        System.out.println("*** displayDisinfectant function called ***");
+    }
+
+    private void displayTowels() {
+        System.out.println("*** displayTowels function called ***");
+    }
+
+    private void displaySheets() {
+        System.out.println("*** displaySheets function called ***");
+    }
+    private void displayFloor() {
+        System.out.println("*** displayFloor function called ***");
+    }
+
+    void displayMenu() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
-    
-    private void startExistingGame() {
-        System.out.println("*** startExistingGame function called ***");
-    }
 
-    private void displayHelpMenu() {
-        // Create HelpMenuView object
-        HelpMenuView helpMenuView = new HelpMenuView();
-                
-        // Display the help menu view
-        helpMenuView.displayHelpMenuView();
-  
-    }
-
-
-    private void saveGame() {
-        System.out.println("*** saveExistingGame function called ***");
-    }
-    
-}
