@@ -5,6 +5,8 @@
  */
 package byui.cit260.hauntedHotels.control;
 
+import java.util.Scanner;
+
 /**
  *
  * @author scottbailey1234
@@ -53,6 +55,5 @@ public class ChallengeControl {
         return floorRate;
             
     }
-    
-    
+
 }

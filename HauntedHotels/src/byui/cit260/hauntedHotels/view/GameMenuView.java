@@ -93,9 +93,15 @@ public class GameMenuView {
     }
 
     private void displayMap() {
-        System.out.println("*** displayMap function called ***");
-}
-    
+        // Create MapuView object
+        MapView mapMenu = new MapView();
+            //display the game menu
+       
+        // Display the map view
+        mapMenu.displayMenu();
+   
+    }
+
     private void displayHousekeeping() {
         // Create HousekeepingMenuView object
         HousekeepingMenuView housekeepingMenuView = new HousekeepingMenuView();

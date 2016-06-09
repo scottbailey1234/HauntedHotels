@@ -97,8 +97,8 @@ public class MainMenuView {
     }
 
     private void startNewGame() {
-    /*    // create a new game
-        GameControl.createNewGame(HauntedHotels.getPlayer());*/
+    // create a new game
+        GameControl.createNewGame(HauntedHotels.getPlayer());
         
         //display the game menu
         GameMenuView gameMenu = new GameMenuView();
