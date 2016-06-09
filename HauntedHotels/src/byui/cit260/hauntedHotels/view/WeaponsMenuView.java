@@ -5,39 +5,35 @@
  */
 package byui.cit260.hauntedHotels.view;
 
+//author Viktor
+
 import java.util.Scanner;
 
-/**
- *
- * @author Acer
- */
-public class GameMenuView {
+
+class WeaponsMenuView {
     
-/*    public void displayMenu() {
-              
-    }*/
     private String menu;
     private String promptMessage;
-   
-    public GameMenuView() {
-     this.menu = "\n"
-               + "\n--------------------------------------------"
-               + "\n| Game Menu                                |"
-               + "\n--------------------------------------------"
-               + "\nM - View the Map"
-               + "\nH - View Housekeeping Inventory Menu"
-               + "\nW - View Weapons Inventory Menu"
+    
+    public WeaponsMenuView() {
+            this.menu = "\n"
+               + "\n----------------------------"
+               + "\n| Weapons Menu             |"
+               + "\n----------------------------"
+               + "\nT - Typewriter"
+               + "\nC - Calculator"
+               + "\nP - Phone"
+               + "\nM - Thermometer"
                + "\nQ - Quit"
-               + "\n--------------------------------------------";
+               + "\n----------------------------";
     }
-   
-    public void displayMenu() {
-        
-        boolean done = false; // set flag to not done
+
+    public void displayWeaponsMenuView() {
+         boolean done = false; // set flag to not done
         do {
         
             // prompt for and get players name
-            String menuOption = this.getMenuOption();
+            String menuOption = this.getWeaponsMenuOption();
             if (menuOption.toUpperCase().equals("Q")) // user wants to quit
                 return; // exit the game
             
@@ -46,7 +42,7 @@ public class GameMenuView {
         } while (!done); 
     }
 
-    private String getMenuOption() {
+    private String getWeaponsMenuOption() {
         
         
         Scanner keyboard = new Scanner(System.in); //get infile for keyboard
@@ -75,14 +71,18 @@ public class GameMenuView {
         choice = choice.toUpperCase(); // convert choice to upper case
         
         switch (choice) {
-            case "M": // display the map
-                this.displayMap();
+
+            case "T": // Spray Disinfectant
+                this.displayTypewriter();
                 break;
-            case "H": // display housekeeping inventory
-                this.displayHousekeeping();
+            case "C": // Restock Towels
+                this.displayCalculator();
                 break;
-            case "W": // display weapons inventory
-                this.displayWeapons();
+            case "P": // Replace Sheets
+                this.displayPhone();
+                break;
+            case "M": // Vaccum Floor
+                this.displayThermometer();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -92,27 +92,20 @@ public class GameMenuView {
         return false;
     }
 
-    private void displayMap() {
-        System.out.println("*** displayMap function called ***");
-}
-    
-    private void displayHousekeeping() {
-        // Create HousekeepingMenuView object
-        HousekeepingMenuView housekeepingMenuView = new HousekeepingMenuView();
-                
-        // Display the housekeeping menu view
-        housekeepingMenuView.displayHousekeepingMenuView();
+    private void displayTypewriter() {
+        System.out.println("*** displayTypewriter function called ***");
     }
 
-    private void displayWeapons() {
-        // Create WeaponsMenuView object
-        WeaponsMenuView weaponsMenuView = new WeaponsMenuView();
-        
-        // Display the weapons menu view
-        
-        weaponsMenuView.displayWeaponsMenuView();
+    private void displayCalculator() {
+        System.out.println("*** displayCalculator function called ***");
     }
 
+    private void displayPhone() {
+        System.out.println("*** displayPhone function called ***");
+    }
+
+    private void displayThermometer() {
+        System.out.println("*** displayThermometer function called ***");
+    }
     
 }
-
