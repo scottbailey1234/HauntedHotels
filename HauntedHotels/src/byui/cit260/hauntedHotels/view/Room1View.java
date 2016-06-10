@@ -6,7 +6,7 @@
 package byui.cit260.hauntedHotels.view;
 
 
-import byui.cit260.hauntedHotels.model.Player;
+import byui.cit260.hauntedHotels.control.ChallengeControl;
 import java.util.Scanner;
 
 
@@ -17,81 +17,99 @@ import java.util.Scanner;
 public class Room1View {
 
     private String promptMessage;
-
-  
-    public void displayBanner() {
+    
+    public Room1View () {
         
-        System.out.println("\n Location - Napa, California"
-              + "\n"          
-              + "\n Witness Report - Doors opening and slamming shut"
-              + "\n with no-one staying on the floor or accessing"
-              + "\n the floor for any reason."
-              + "\n"          
-              + "\n History - Three spirits are said to haunt the Napa River "
-              + "\n Inn, which dates back to 1885. The unexplained activity "
-              + "\n seems to center around the two guest rooms above Sweetie "
-              + "\n Pie's Bakery, the site where one of the previous "
-              + "\n owners of the building hung himself years ago."
-              + "\n"
-              + "\n What would you like to do? Hint: You've been"
-              + "\n traveling all day and you are very hungry. Good thing"
-              + "\n you are staying right above a bakery famous for its pies."
-              + "\n");
+        this.promptMessage = "\nFind RevPar:  ";
+        // display the banner when view is created
+        this.displayBanner();
+    
+}
 
+    private void displayBanner() {
+        System.out.println(
+                "\n**********************************************************"
+              + "\n* REVpar Challenge"
+              + "\n**********************************************************"        
+              + "\n You are a manager at <hotel>. The owner is considering "
+              + "\n selling the hotel and they want to know how much income each "
+              + "\n individual room brought in daily over the last year (365 days)."
+              + "\n This means you’ll have to calculate REVpar. Considering that "
+              + "\n you have 100 rooms available each night, what would your total "
+              + "\n income for one year (365 days) need to be in order to get a "
+              + "\n REVpar equal to or greater than $100/room.*"
+              + "\n**********************************************************"  
+              );
     }
     
-    public void displayRoom1View() {
+    public boolean doAction(double revParEquation){
         
-        boolean done = false; // set flag to not done
-        do {
-            // prompt for and get players name
-            String room1Answer = this.getRoom1Answer();
-            if (room1Answer.toUpperCase().equals("Q"))//user wants to quit
-                return; // exit the game
-            
-            // do the requested action and display the next view
-        
-        done == this.doAction(room1Answer);
-      } while (!done);
-    }
+      ChallengeControl challengeControl = new ChallengeControl();
+      
+      double totRev = challengeControl.calcRevpar((int) revParEquation);
+      
+        if (totRev == -1){
+          
+          // totRev < 1 || totRev > 100000000
+          System.out.println("\nTotal Income must be greater than 1"
+                           + "\n and less than 100 million or "
+                           + "\n 100,000,000. Please try again...");
+      }
+        else {
+          if (totRev < 100) {
+            System.out.println("\nYour income per room for the past year"
+                  + " is not desireable. Try to figure out the total income"
+                  + " for the past year needed to average $100 or more"
+                  + " per room.");    
+          } else {
+              System.out.println("\nYou found a desireable REVpar!"
+                      + "\nYour REVpar is: " + totRev);
+              return true;
+          }
 
-    private String getRoom1Answer() {
+    }
+    return false;
+    } 
+    private String getInput(){
+        
         Scanner keyboard = new Scanner(System.in); //get infile for keyboard
         String value = ""; // value to be returned
         boolean valid = false; //initialize to not valid
         
-        while (!valid) { // loop while an invalid value is enter
-            System.out.println("\n" + this.promptMessage);
+        while (!valid) {// loop wile an invalid value is entered
             
-            value = keyboard.nextLine(); // get next line typed on keyboard
+ //           System.out.println("\n" + this.promptMessage);
+            
+            value = keyboard.nextLine(); //get next line typed on keyboard
             value = value.trim(); // trim off leading and trailing blanks
-            
-            if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value can not be blank");
+                     
+            if (value.length()< 1){ //blank value entered
+                System.out.println("\n*** Invalid value: value cannot be blank");
                 continue;
             }
-            
-            break; // end the loop
+            break; //end the loop
         }
-        
-        return value; // return the value entered
+        return value;
     }
     
-    private String doAction(String room1Answer) {
-        if (room1Answer.equals("eat pie")){
-            return "\n Yummy!"
-                + "\n"
-                + "\n The Napa River Inn used to be a working mill.\"\n"
-                + "\n Three ghosts are said to haunt the Napa River\"\n"
-                + "\n Inn, Captain Albert Hatt Jr., his wife, and former mill\"\n"
-                + "\n owner Rober Keig. All died in the mill in uncommon ways.\"\n";
-                    
-        }else{
-            return "Try Again";
-        }
-
-   
+    public void display() {
+        
+        String value;
+        boolean done = false;
+        
+        do {
+            System.out.println(this.promptMessage);
+            
+            double revPar = 0.0;
+            
+            System.out.println("\nFigure out how much income is required to get a REVpar "
+                           + "\nequal to or greater than $100/room:  ");
+                                      
+            revPar = Double.parseDouble(getInput());
+            
+            done = this.doAction(revPar);
+        } while (!done);
     }
+
+
 }
-
-

@@ -1,5 +1,7 @@
 /*
  * THIS MENU IS PROBABLY NOT NECESSARY BUT IS BEING USED TO TEST THE ROOM1VIEW CLASS.
+ * IT WAS AN ATTEMPT TO TEST THE LESSON 7 INDIVIDUAL ASSIGNMENT, VIEW 2 AND MAY BE CHANGED
+* DEPENDING UPON FUTURE LESSON REQUIREMENTS.
  */
 package byui.cit260.hauntedHotels.view;
 
@@ -10,7 +12,7 @@ import java.util.Scanner;
  * @author scottbailey1234
  */
 public class MapView {
-
+/*
     private String menu;
     private String promptMessage;
    
@@ -286,7 +288,7 @@ public class MapView {
     private void displayRoom25() {
        System.out.println("*** displayRoom25 function called ***");
     }
-        
+*/        
 }
 
     

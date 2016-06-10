@@ -27,6 +27,8 @@ public class GameMenuView {
                + "\nM - View the Map"
                + "\nH - View Housekeeping Inventory Menu"
                + "\nW - View Weapons Inventory Menu"
+               + "\nTF - Test Rate Floor"
+               + "\nTR - Test RevPar"
                + "\nQ - Quit"
                + "\n--------------------------------------------";
     }
@@ -84,6 +86,12 @@ public class GameMenuView {
             case "W": // display weapons inventory
                 this.displayWeapons();
                 break;
+            case "TF": // display RateFloorView
+                this.displayRateFloor();
+                break;
+            case "TR": // display Room1View - REVpar
+                this.displayRoom1();
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
@@ -93,13 +101,15 @@ public class GameMenuView {
     }
 
     private void displayMap() {
-        // Create MapuView object
+        System.out.println("\n*** displayMap function called");
+
+/*        // Create MapuView object
         MapView mapMenu = new MapView();
             //display the game menu
        
         // Display the map view
         mapMenu.displayMenu();
-   
+*/   
     }
 
     private void displayHousekeeping() {
@@ -118,7 +128,23 @@ public class GameMenuView {
         
         weaponsMenuView.displayWeaponsMenuView();
     }
+    
+    private void displayRateFloor() {
+        // Create RateFloorView object
+        RateFloorView displayBanner = new RateFloorView();
+                
+        // Display the RateFloor view
+        displayBanner.display();
+    }
 
+    private void displayRoom1() {
+        // Create Room1View object
+        Room1View displayBanner = new Room1View();
+        
+        // Display the Room1 view
+        
+        displayBanner.display();
+    }
     
 }
 

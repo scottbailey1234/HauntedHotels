@@ -13,7 +13,7 @@ import java.util.Scanner;
  * @author Acer
  */
 public class RateFloorView {
-    
+
     private String promptMessage;
     
     public RateFloorView () {
@@ -99,4 +99,5 @@ public class RateFloorView {
             done = this.doAction(percentBooked);
         } while (!done);
     }
+    
 }
