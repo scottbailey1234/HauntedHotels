@@ -10,13 +10,10 @@ package byui.cit260.hauntedHotels.view;
 import java.util.Scanner;
 
 
-class WeaponsMenuView {
-    
-    private String menu;
-    private String promptMessage;
-    
+class WeaponsMenuView extends View {
+
     public WeaponsMenuView() {
-            this.menu = "\n"
+        super("\n"
                + "\n----------------------------"
                + "\n| Weapons Menu             |"
                + "\n----------------------------"
@@ -25,48 +22,11 @@ class WeaponsMenuView {
                + "\nP - Phone"
                + "\nM - Thermometer"
                + "\nQ - Quit"
-               + "\n----------------------------";
+               + "\n----------------------------");
     }
 
-    public void displayWeaponsMenuView() {
-         boolean done = false; // set flag to not done
-        do {
-        
-            // prompt for and get players name
-            String menuOption = this.getWeaponsMenuOption();
-            if (menuOption.toUpperCase().equals("Q")) // user wants to quit
-                return; // exit the game
-            
-            // do the requested action and display the next view
-            done = this.doAction(menuOption);
-        } while (!done); 
-    }
-
-    private String getWeaponsMenuOption() {
-        
-        
-        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
-        String value = ""; // value to be returned
-        boolean valid = false; //initialize to not valid
-        
-        while (!valid) { // loop while an invalid value is enter
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-            
-            if (value.length()< 1) { // value is blank
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-            }
-            
-            break; // end the loop
-        }
-        
-        return value; // return the value entered
-    }
-
-    private boolean doAction(String choice) {
+    @Override
+    public boolean doAction(String choice) {
         
         choice = choice.toUpperCase(); // convert choice to upper case
         
