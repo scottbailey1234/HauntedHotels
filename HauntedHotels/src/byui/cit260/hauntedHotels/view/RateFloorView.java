@@ -12,14 +12,12 @@ import java.util.Scanner;
  *
  * @author Acer
  */
-public class RateFloorView {
-
-    private String promptMessage;
+public class RateFloorView extends View {
     
     public RateFloorView () {
         
-        this.promptMessage = "\nPlease enter percent of the hotel"
-                           + "\nrooms need to be booked:  ";
+        super("\nPlease enter percent of the hotel"
+                           + "\nrooms need to be booked:  ");
         // display the banner when view is created
         this.displayBanner();
     
@@ -42,31 +40,9 @@ public class RateFloorView {
               + "\n**********************************************************"  
               );
     }
-    
-    private String getPercentBooked(){
-        
-        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
-        String value = ""; // value to be returned
-        boolean valid = false; //initialize to not valid
-        
-        while (!valid) {// loop wile an invalid value is entered
-            
-            System.out.println("\n" + this.promptMessage);
-            
-            value = keyboard.nextLine(); //get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-                     
-            if (value.length()< 1){ //blank value entered
-                System.out.println("\n*** Invalid value: value cannot be blank");
-                continue;
-            }
-            break; //end the loop
-        }
-        return value;
-    }
-    
-    public boolean doAction(double percentBooked){
-        
+    @Override   
+    public boolean doAction(String value){
+      double percentBooked = Double.parseDouble(value);        
       ChallengeControl challengeControl = new ChallengeControl();
       
       double floorRate = challengeControl.rateFloor(percentBooked);
@@ -81,23 +57,6 @@ public class RateFloorView {
       }
       return false;
     }
-    
-    public void display() {
-        
-        String value;
-        boolean done = false;
-        
-        do {
-            System.out.println(this.promptMessage);
-            
-            double percentBooked = 0.0;
-            
-            System.out.println("\nPlease enter percent of the hotel"
-                           + "\nrooms need to be booked:  ");
-            percentBooked = Double.parseDouble(getPercentBooked());
-            
-            done = this.doAction(percentBooked);
-        } while (!done);
-    }
+
     
 }

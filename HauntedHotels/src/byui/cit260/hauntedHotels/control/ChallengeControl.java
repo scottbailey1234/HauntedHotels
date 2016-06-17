@@ -32,14 +32,14 @@ public class ChallengeControl {
     }
         
     // calculate Revpar    
-    public double calcRevpar(int totRev) {
+    public double calcRevpar(double totRev) {
         
         if (totRev < 1 || totRev > 100000000) { // total revenue is out of range?
                 return -1;
         }
 
-        int r = 365 * 100;
-        int revpar = totRev / r;
+        double r = 365 * 100;
+        double revpar = totRev / r;
         
         return revpar;
 

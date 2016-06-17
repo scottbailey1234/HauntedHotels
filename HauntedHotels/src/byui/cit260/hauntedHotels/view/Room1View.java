@@ -31,15 +31,15 @@ public class Room1View extends View{
               + "\n**********************************************************"  
               );
     }
-    
+    @Override
     public boolean doAction(String value){
-      
-      String[] values = value  
+      double totRev = Double.parseDouble(value);      
       ChallengeControl challengeControl = new ChallengeControl();
+       
       
-      double totRev = challengeControl.calcRevpar((int) revParEquation);
+      double totRevPar = challengeControl.calcRevpar(totRev);
       
-        if (totRev == -1){
+        if (totRevPar == -1){
           
           // totRev < 1 || totRev > 100000000
           System.out.println("\n Total Income must be greater than 1"
@@ -47,9 +47,11 @@ public class Room1View extends View{
                            + "\n 100,000,000. Please try again... Hint: enter "
                            + "\n an amount equal to or larger"
                            + "\n than 3650000");
-      }
+        }
+
         else {
-          if (totRev < 100) {
+             
+          if (totRevPar < 100) {
             System.out.println("\n Your income per room for the past year"
                   + "\n is not desireable. Try to figure out the total income"
                   + "\n for the past year needed to average $100 or more"
@@ -57,17 +59,13 @@ public class Room1View extends View{
                   + "\n than 3650000");    
           } else {
               System.out.println("\n You found a desireable REVpar!"
-                      + "\n Your REVpar is: " + totRev);
+                      + "\n Your REVpar is: " + totRevPar);
               return true;
           }
-
+                
     }
     return false;
     } 
 
-    @Override
-    public boolean doAction(String value) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }
