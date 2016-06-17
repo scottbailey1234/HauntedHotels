@@ -17,6 +17,7 @@ public class GameMenuView extends View {
                + "\nW - View Weapons Inventory Menu"
                + "\nTF - Test Rate Floor"
                + "\nTR - Test RevPar"
+               + "\nTR2 - Test Room2Challenge"
                + "\nQ - Quit"
                + "\n--------------------------------------------");
     }
@@ -42,6 +43,9 @@ public class GameMenuView extends View {
             case "TR": // display Room1View - REVpar
                 this.displayRoom1();
                 break;
+            case "TR2": // display Room2View - Napa Pie Challenge
+                this.displayRoom2();
+                break;                
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
@@ -96,5 +100,13 @@ public class GameMenuView extends View {
         displayBanner.display();
     }
     
+    private void displayRoom2() {
+        // Create Room2View object
+        Room2View displayBanner = new Room2View();
+        
+        // Display the Room1 view
+        
+        displayBanner.display();
+    }
 }
 
