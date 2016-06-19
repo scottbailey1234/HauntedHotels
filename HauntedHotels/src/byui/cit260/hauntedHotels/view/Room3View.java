@@ -40,7 +40,7 @@ public class Room3View extends View {
               + "\n* a rate floor that is greater than $50 and less than $60.  *"
               + "\n*                                                           *"
               + "\n* Player enters different numbers until the result is shown *"
-              + "\n* that is acceptable (between $50 and $50)                  *"
+              + "\n* that is acceptable (between $50 and $60)                  *"
               + "\n*                                                           *"
               + "\n*************************************************************"
               );

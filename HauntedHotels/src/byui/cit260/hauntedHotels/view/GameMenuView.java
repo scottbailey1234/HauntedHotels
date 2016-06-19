@@ -14,10 +14,10 @@ public class GameMenuView extends View {
                + "\n--------------------------------------------"
                + "\nM - View the Map"
                + "\nH - View Housekeeping Inventory Menu"
-               + "\nW - View Weapons Inventory Menu"
-               + "\nTF - Test Rate Floor"
+               + "\nW - View Weapons Inventory Menu"               
                + "\nTR - Test RevPar"
                + "\nTR2 - Test Room2Challenge"
+               + "\nTR3 - Test Room3Challenge"
                + "\nQ - Quit"
                + "\n--------------------------------------------");
     }
@@ -36,16 +36,16 @@ public class GameMenuView extends View {
                 break;
             case "W": // display weapons inventory
                 this.displayWeapons();
-                break;
-            case "TF": // display RateFloorView
-                this.displayRateFloor();
-                break;
+                break;            
             case "TR": // display Room1View - REVpar
                 this.displayRoom1();
                 break;
             case "TR2": // display Room2View - Napa Pie Challenge
                 this.displayRoom2();
-                break;                
+                break; 
+            case "TR3": // display RateFloorView
+                this.displayRoom3();
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
@@ -82,15 +82,7 @@ public class GameMenuView extends View {
         
         weaponsMenuView.display();
     }
-    
-    private void displayRateFloor() {
-        // Create RateFloorView object
-        RateFloorView displayBanner = new RateFloorView();
-                
-        // Display the RateFloor view
-        displayBanner.display();
-    }
-
+        
     private void displayRoom1() {
         // Create Room1View object
         Room1View displayBanner = new Room1View();
@@ -106,6 +98,13 @@ public class GameMenuView extends View {
         
         // Display the Room1 view
         
+        displayBanner.display();
+    }
+    private void displayRoom3() {
+        // Create RateFloorView object
+        Room3View displayBanner = new Room3View();
+                
+        // Display the RateFloor view
         displayBanner.display();
     }
 }
