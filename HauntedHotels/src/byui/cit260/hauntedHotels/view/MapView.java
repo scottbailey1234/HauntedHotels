@@ -23,7 +23,7 @@ public class MapView {
                + "\n--------------------------------------------"
                + "\n1 - Napa River Inn: Room 207"
                + "\n2 - Napa River Inn: Room 208"
-               + "\n3 - Omni Parker House Room 203"
+               + "\n3 - Omni Parker House Room 303"
                + "\n4 - Crescent Hotel: Room 202"
                + "\n5 - Crescent Hotel: Room 218"
                + "\n6 - Crescent Hotel: Room 418"

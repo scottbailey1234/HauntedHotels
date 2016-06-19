@@ -31,7 +31,7 @@ public class RateFloorView extends View {
               + "\n* to pay the least amout possible. The hotel has 100     *"  
               + "\n* rooms and charges their guests $70/room.               *"
               + "\n* What percent of the hotel rooms need to be booked to   *"      
-              + "\n* find a rate floor that is greater that $50 and less    *"      
+              + "\n* find a rate floor that is greater than $50 and less    *"      
               + "\n* than $60.                                              *" 
               + "\n*                                                        *"  
               + "\n* Player enters different numbers until the result is    *"
