@@ -5,48 +5,56 @@
  */
 package byui.cit260.hauntedHotels.model;
 
-import java.util.Objects;
+import java.awt.Point;
+
 
 /**
  *
  * @author scottbailey1234
  */
-public class Character implements Serializable{
+public enum Character implements Serializable{
+    
+    Manager("Manages the hotel"),
+    Scientist("Paranormal scientist"),
+    Psychic("Sees paranormal things"),
+    Guest("Hotel guest");
     
     // class instance variables
-    private String name;
-    private String description;
-    private double coordinates;
+    //private String name;
+    private final String description;
+    private final Point coordinates;
 
-    public Character() {
+    Character(String description) {
+        this.description = description;
+        coordinates = new Point(1,1);
     }
 
     
-    public String getName() {
+    /*public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
+    }*/
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    /*public void setDescription(String description) {
         this.description = description;
-    }
+    }*/
 
-    public double getCoordinates() {
+    public Point getCoordinates() {
         return coordinates;
     }
 
-    public void setCoordinates(double coordinates) {
+   /*public void setCoordinates(double coordinates) {
         this.coordinates = coordinates;
-    }
+    }*/
 
-    @Override
+    /*@Override
     public int hashCode() {
         int hash = 7;
         hash = 29 * hash + Objects.hashCode(this.name);
@@ -82,6 +90,6 @@ public class Character implements Serializable{
             return false;
         }
         return true;
-    }
+    }*/
 
 }

@@ -15,11 +15,48 @@ public class Game implements Serializable {
     
     //class instance variables
     private double totalChallenges;
+    
+    private InventoryItems[] inventory;
+    private Player player;
+    private String[] characters;
+    private Map map;
 
     public Game() {
     }
-    
 
+    public InventoryItems[] getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(InventoryItems[] inventory) {
+        this.inventory = inventory;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public String[] getCharacters() {
+        return characters;
+    }
+
+    public void setCharacters(String[] characters) {
+        this.characters = characters;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+    
+   
     public double getTotalChallenges() {
         return totalChallenges;
     }
