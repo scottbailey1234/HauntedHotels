@@ -11,16 +11,38 @@ package byui.cit260.hauntedHotels.model;
  */
 public class HotelLocation {
     
-    private int row;
+    private LocationType type;
+    private String challenge;
+    private InventoryItems item;
+    private Character character;
+   
+ 
+    
+/*    private int row;
     private int column;
     private int visited;
     private int amountRemaining;
-
+*/
     public HotelLocation() {
     }
 
+    public LocationType getType() {
+        return type;
+    }    
+    public void setType(LocationType type) {
+        this.type = type;
+    }
+    public String getChallenge() {
+        return challenge;
+    }
+
+    Object getItem() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    public void 
     
     
+/*    
     public int getRow() {
         return row;
     }
@@ -95,5 +117,5 @@ public class HotelLocation {
         return true;
     }
     
-    
+*/    
 }

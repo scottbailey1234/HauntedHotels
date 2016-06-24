@@ -5,6 +5,8 @@
  */
 package byui.cit260.hauntedHotels.view;
 
+import hauntedhotels.HauntedHotels;
+
 public class GameMenuView extends View {
      
     public GameMenuView() {
@@ -55,7 +57,7 @@ public class GameMenuView extends View {
     }
 
     private void displayMap() {
-        System.out.println("\n*** displayMap function called");
+        System.out.println(HauntedHotels.getGame().getMap().getMapString());
 
 /*        // Create MapuView object
         MapView mapMenu = new MapView();

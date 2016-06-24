@@ -46,5 +46,13 @@ public class HauntedHotels {
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.display();        
     }
+
+    public static Object getGame() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static void setGame(Game g) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
 

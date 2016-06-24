@@ -10,6 +10,8 @@ import byui.cit260.hauntedHotels.model.InventoryItems;
 import byui.cit260.hauntedHotels.model.Map;
 import byui.cit260.hauntedHotels.model.Player;
 import hauntedhotels.HauntedHotels;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -23,33 +25,81 @@ public class GameControl {
             return null;
         }
         
-        Player player = new Player();
-        player.setName(name);
+        Player p = new Player();
+        p.setName(name);
         
-        HauntedHotels.setPlayer(player); // save the player
+//        HauntedHotels.setPlayer(player); // save the player
         
-        return player;
+        return p;
     }
 
     public static void createNewGame(Player player) {
-        Game game = new Game(); // create new game
-        HauntedHotels.setCurrentGame(game); // save in HauntedHotels
+        Game g = new Game(); // create new game
+        g.setPlayer(player); //save player in game
         
-        game.setPlayer(player); //save player in game
+        Map gameMap = new Map();
+        g.setMap(gameMap);
         
+        populateMapWithItems(gameMap);
+        
+        player.setLocation(gameMap.getLocation(0, 0));
+        
+        HauntedHotels.setGame(g);
+        
+    }
+     
+    public static void populateMapWithItems (Map map) {
+        
+        List<InventoryItems> items = createItemList();
+        boolean success = false;
+           
+        for(InventoryItems i : items) {
+            
+            do {
+                       
+                int row = (int) Math.random() * Map.NUM_ROWS);
+                int col = (int) Math.random() * Map.NUM_COLS);
+                
+                    success = false;
+                      
+                if(map.getLocation(row, col).getHero() == null) {
+                    map.getLocation(row, col).setItem(i);                
+                    success = true;
+                }
+            
+            } while(success ==false);
+        
+        }    
+    
+    }    
+    
+    public static List<InventoryItems> createItemList() {
+        
+        List<InventoryItems> itemList = new ArrayList<>();
+        
+        Item typewriter = new Item();
+        typewriter.setDescription("All work and no play makes Jack a dull boy.");
+        itemList.add(typewriter);
+        
+        return itemList;
+        
+    }
+//new victor        HauntedHotels.setCurrentGame(game); // save in HauntedHotels
+        
+      
         //create the inventory list and save in the game
         /*private InventoryItems[] inventory;
         private Player player;
         private String[] characters;
         private Map map;*/
-        InventoryItems[] inventoryList =GameControl.createInventoryList();
-        game.setInventory(inventoryList);
+//new victor        InventoryItems[] inventoryList =GameControl.createInventoryList();
+//new victor        game.setInventory(inventoryList);
         
-        Map map = MapControl.createMap();
-        game.setMap(map); // save map in game
+//new victor        Map map = MapControl.createMap();
+//new victor        game.setMap(map); // save map in game
         
         // move characters to starting pisition in the map
-        MapControl.moveCharactersToStartingLocation(map);
+//new victor        MapControl.moveCharactersToStartingLocation(map);
     }
         public enum Item {
             spray,
@@ -57,11 +107,11 @@ public class GameControl {
             sheets,
             vacuum,
             typewriter,
-            calculatro,
+            calculator,
             phone,
             thermometer;            
         }
-    private static InventoryItems[] createInventoryList() {
+/*    private static InventoryItems[] createInventoryList() {
         InventoryItems[] inventory =
                 new InventoryItems[15];
         InventoryItems spray = new InventoryItems();
@@ -73,5 +123,5 @@ public class GameControl {
         return inventory;  
         
     
-    }
+    }*/
 }

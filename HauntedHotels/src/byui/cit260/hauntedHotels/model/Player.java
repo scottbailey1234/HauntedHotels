@@ -16,6 +16,8 @@ public class Player implements Serializable{
     
     // class instance variables
     private String name;
+    List<InventoryItems> item;
+    List<Character> team;
     private double challengesSolved;
 
     public Player() {
@@ -70,6 +72,10 @@ public class Player implements Serializable{
             return false;
         }
         return true;
+    }
+
+    public void setLocation(HotelLocation location) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 

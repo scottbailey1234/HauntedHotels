@@ -61,7 +61,6 @@ public class MainMenuView extends View {
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
 }
-    
     private void startExistingGame() {
         System.out.println("*** startExistingGame function called ***");
     }
@@ -74,7 +73,6 @@ public class MainMenuView extends View {
         helpMenuView.display();
   
     }
-
 
     private void saveGame() {
         System.out.println("*** saveExistingGame function called ***");

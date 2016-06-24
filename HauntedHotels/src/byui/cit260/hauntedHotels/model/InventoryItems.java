@@ -17,11 +17,10 @@ public class InventoryItems implements Serializable {
     private String inventoryType;
     private String inventoryDescription;
 
+    
     public InventoryItems() {
     }
-
-    
-    
+   
     public String getInventoryType() {
         return inventoryType;
     }
