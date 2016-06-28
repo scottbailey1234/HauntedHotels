@@ -57,8 +57,8 @@ public class GameControl {
             
             do {
                        
-                int row = (int) Math.random() * Map.NUM_ROWS);
-                int col = (int) Math.random() * Map.NUM_COLS);
+                int row = ((int) Math.random() * Map.NUM_ROWS);
+                int col = ((int) Math.random() * Map.NUM_COLS);
                 
                     success = false;
                       
