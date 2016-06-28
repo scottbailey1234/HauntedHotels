@@ -5,44 +5,49 @@
  */
 package byui.cit260.hauntedHotels.model;
 
+import byui.cit260.hauntedHotels.enums.Actor;
+import java.util.ArrayList;
+import java.io.Serializable;
+
 /**
  *
  * @author scottbailey1234
  */
-public class HotelLocation {
-    
-    private LocationType type;
-    private String challenge;
-    private InventoryItems item;
-    private Character character;
-   
- 
-    
-/*    private int row;
+//import citbyui.cit260.curiousworkmanship.enums.Actor;
+//import java.io.Serializable;
+//import java.util.ArrayList;
+
+/**
+ *
+ * @author jacksonrkj
+ */
+public class HotelLocation implements Serializable {
+
+    private int row;
     private int column;
-    private int visited;
-    private int amountRemaining;
-*/
+    private boolean visited;
+    private Scene scene;
+    private ArrayList<Actor> actors;
+    
+
+    public HotelLocation(int row, int column, Scene scene, ArrayList<Actor> actors) {
+        this.row = row;
+        this.column = column;
+        this.visited = false;
+        this.scene = scene;
+        this.actors = actors;
+    }
+    
+
     public HotelLocation() {
+        this.actors = new ArrayList<>();
     }
 
-    public LocationType getType() {
-        return type;
-    }    
-    public void setType(LocationType type) {
-        this.type = type;
-    }
-    public String getChallenge() {
-        return challenge;
+    public HotelLocation(int row, int column) {
+        this.row = row;
+        this.column = column;
     }
 
-    Object getItem() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    public void 
-    
-    
-/*    
     public int getRow() {
         return row;
     }
@@ -58,43 +63,63 @@ public class HotelLocation {
     public void setColumn(int column) {
         this.column = column;
     }
-
-    public int getVisited() {
+    
+    public boolean isVisited() {
         return visited;
     }
 
-    public void setVisited(int visited) {
+    public void setVisited(boolean visited) {
         this.visited = visited;
     }
-
-    public int getAmountRemaining() {
-        return amountRemaining;
+    
+    public Scene getScene() {
+        return scene;
     }
 
-    public void setAmountRemaining(int amountRemaining) {
-        this.amountRemaining = amountRemaining;
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
+    public ArrayList<Actor> getActors() {
+        return actors;
+    }
+
+    public void setActors(ArrayList<Actor> actors) {
+        this.actors = actors;
+    }
+    
+    public void removeActor(Actor actor) {
+        if (actor == null) {
+            return;
+        }
+        this.actors.remove(actor);
+    }
+    
+        
+    public void addActor(Actor actor) {
+        if (actor == null || this.actors.contains(actor)) {
+            return;
+        }
+            
+        this.actors.add(actor);
+    }
+    
+
+    @Override
+    public String toString() {
+        return "Location{" + "row=" + row + ", column=" + column + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 97 * hash + this.row;
-        hash = 97 * hash + this.column;
-        hash = 97 * hash + this.visited;
-        hash = 97 * hash + this.amountRemaining;
+        hash = 67 * hash + this.row;
+        hash = 67 * hash + this.column;
         return hash;
     }
 
     @Override
-    public String toString() {
-        return "HotelLocation{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", amountRemaining=" + amountRemaining + '}';
-    }
-
-    @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
         if (obj == null) {
             return false;
         }
@@ -108,14 +133,11 @@ public class HotelLocation {
         if (this.column != other.column) {
             return false;
         }
-        if (this.visited != other.visited) {
-            return false;
-        }
-        if (this.amountRemaining != other.amountRemaining) {
-            return false;
-        }
         return true;
     }
     
-*/    
+    
+
+        
 }
+

@@ -6,6 +6,7 @@
 package byui.cit260.hauntedHotels.view;
 
 import byui.cit260.hauntedHotels.control.GameControl;
+import byui.cit260.hauntedHotels.control.ProgramControl;
 import byui.cit260.hauntedHotels.model.Player;
 
 /**
@@ -49,29 +50,40 @@ public class StartProgramView extends View {
               );
     }
 
+
     @Override
-    public boolean doAction(String value) {
-        if (value.length() < 2) {
-            System.out.println("\nInvalid players name: "
-                    + "The name must be greater than one character in length");
-            return false;
+    public boolean doAction(String obj) {
+        
+        boolean valid = false;
+        String playersName = (String) obj;
+        
+        while(!valid) { // while a valid name has not been retrieved
+            playersName = playersName.trim(); 
+            
+            if (playersName.equals("Q")) { // user wants to quit
+                return true;
+            }
+            
+            valid = true; 
         }
-        
-        // call createPlayer() control function
-        Player player = GameControl.createPlayer(value);
-        
-        if (player == null) { //if usuccessful
-            System.out.println("\nError creating the player.");
-            return false;
+         
+        // Create the player object and save it in the ProgramControl class
+        Player player = ProgramControl.createPlayer(playersName);
+        if (player == null) {
+            System.out.println("The players name is invalid");
         }
-        
-        //display next view
+       
+        // Display a personalized welcome message
         this.displayNextView(player);
         
-        return true; // success !
-          
-    }
+        // Display the Main menu.
+        MainMenuView mainMenuView = new MainMenuView();
+        mainMenuView.display();
+        
+        return true;
 
+    }
+    
     private void displayNextView(Player player) {
         // display a custom welcome message
         System.out.println("\n=============================================="
@@ -87,7 +99,10 @@ public class StartProgramView extends View {
         mainMenuView.display();
     }
 
-       
+
+
 }
+
+
     
 

@@ -5,8 +5,6 @@
  */
 package byui.cit260.hauntedHotels.view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author scottbailey1234
@@ -45,6 +43,7 @@ public class HousekeepingMenuView extends View{
             case "F": // Vaccum Floor
                 this.displayFloor();
                 break;
+
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
@@ -68,8 +67,6 @@ public class HousekeepingMenuView extends View{
         System.out.println("*** displayFloor function called ***");
     }
 
-    void displayMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }
 

@@ -5,7 +5,11 @@
  */
 package byui.cit260.hauntedHotels.view;
 
+import byui.cit260.hauntedHotels.control.GameControl;
+import byui.cit260.hauntedHotels.model.HotelLocation;
+import byui.cit260.hauntedHotels.model.Scene;
 import hauntedhotels.HauntedHotels;
+import java.io.PrintWriter;
 
 public class GameMenuView extends View {
      
@@ -31,7 +35,7 @@ public class GameMenuView extends View {
         
         switch (choice) {
             case "M": // display the map
-                this.displayMap();
+                this.displayMap(); 
                 break;
             case "H": // display housekeeping inventory
                 this.displayHousekeeping();
@@ -57,16 +61,50 @@ public class GameMenuView extends View {
     }
 
     private void displayMap() {
-        System.out.println(HauntedHotels.getGame().getMap().getMapString());
-
-/*        // Create MapuView object
-        MapView mapMenu = new MapView();
-            //display the game menu
-       
-        // Display the map view
-        mapMenu.displayMenu();
-*/   
+       this.viewMap(HauntedHotels.getOutFile()); 
     }
+    
+    public void viewMap(PrintWriter out) {
+        int lineLength = 0;
+        
+        // get the map for the game
+        HotelLocation[][] locations = GameControl.getMapLocations();
+        int noColumns = locations[0].length; // get number columns in row
+        
+        this.printTitle(out, noColumns, "HAUNTED HOTEL LOCATIONS");
+        this.printColumnHeaders(out, noColumns);
+        
+        for (int i = 0; i < locations.length; i++) {    
+            HotelLocation[] rowLocations = locations[i];
+            this.printRowDivider(out, noColumns);
+            out.println(); // move down one i
+            if (i < 9)
+                out.print(" " + (i+1));
+            else 
+                out.print(i+1);
+            
+            // for every column in the row
+            for (int column = 0; column < noColumns; column++) {
+                out.print("|"); // print column divider
+                HotelLocation location = rowLocations[column];
+                if (location != null && location.isVisited()) { // if location is visited 
+                    
+                    Scene scene = location.getScene();
+                    if (scene != null)
+                        out.print(scene.getMapSymbol());
+                    else
+                        out.print("    ");
+                }
+                else {
+                    out.print(" ?? ");
+                }      
+            }
+            
+            out.print("|"); // print column divider
+        }
+        
+        this.printRowDivider(out, noColumns);
+    }  
 
     private void displayHousekeeping() {
         // Create HousekeepingMenuView object
@@ -109,5 +147,41 @@ public class GameMenuView extends View {
         // Display the RateFloor view
         displayBanner.display();
     }
+
+
+    private void printColumnHeaders(PrintWriter out, int noOfColumns) {
+        for (int i = 1; i < noOfColumns+1; i++) {
+            if (i < 10) {
+                out.print("   " + i + " ");
+            }
+            else {
+                out.print("  " + i + " ");
+            }
+        }
+    }
+
+    private void printRowDivider(PrintWriter out, int noColumns) {
+        out.println();
+        out.print("  ");
+        for (int i = 0; i < noColumns; i++) { // print row divider
+                out.print("-----");
+        }
+        out.print("-");
+    }
+
+    private void printTitle(PrintWriter out, int noOfColumns, String title) {
+        
+        int titleLength = title.length();
+        int lineLength = noOfColumns * 5 + 3;
+        int startPosition = (lineLength / 2) - (titleLength / 2);
+        out.println("\n");
+        for (int i = 0; i < startPosition; i++) {
+            out.print(" ");  
+        }
+        out.print(title);
+        out.println("\n");
+        
+    }
+    
 }
 

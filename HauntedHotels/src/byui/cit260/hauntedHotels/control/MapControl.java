@@ -6,6 +6,8 @@
 package byui.cit260.hauntedHotels.control;
 
 import byui.cit260.hauntedHotels.model.Map;
+import byui.cit260.hauntedHotels.model.Player;
+import javafx.scene.Scene;
 
 /**
  *
@@ -26,7 +28,16 @@ public class MapControl {
         return map;
     }
 
-    static void moveCharactersToStartingLocation(Map map) {
+
+    private static Scene[] createScene() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private static void assignScenesToLocations(Map map, Scene[] scenes) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    static void moveActorsToStartingLocation(Map map, Player[] actors) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

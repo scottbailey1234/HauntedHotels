@@ -11,15 +11,16 @@ import java.util.Objects;
  *
  * @author Acer
  */
-public class RoomScene implements Serializable {
+public class Scene implements Serializable {
     
     private int roomNumber;
+    private String mapSymbol;
     private String roomBackgroundInfo;
     private int roomChallenge;
     private String blockedLocation;
     private String displaySymbol;
 
-    public RoomScene() {
+    public Scene() {
     }
     
     
@@ -93,7 +94,7 @@ public class RoomScene implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final RoomScene other = (RoomScene) obj;
+        final Scene other = (Scene) obj;
         if (this.roomNumber != other.roomNumber) {
             return false;
         }
@@ -111,12 +112,15 @@ public class RoomScene implements Serializable {
         }
         return true;
     }
-    
-    
-    
-    
-    
-    
+
+    public String getMapSymbol() {
+        return mapSymbol;
+    }
+
+    public void setMapSymbol(String mapSymbol) {
+        this.mapSymbol = mapSymbol;
+    }
+
     
     
 }

@@ -3,15 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package byui.cit260.hauntedHotels.model;
+package byui.cit260.hauntedHotels.enums;
 
 /**
  *
  * @author scottbailey1234
  */
-public enum LocationType {
-    Boston,
-    Napa,
-    NewOrleans 
-    
+public enum Item {
+    spray,
+    towels,
+    sheets,
+    vacuum,
+    typewriter,
+    calculator,
+    phone,
+    thermometer;  
 }

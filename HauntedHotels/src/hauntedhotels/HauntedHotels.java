@@ -7,13 +7,14 @@ package hauntedhotels;
 
 import byui.cit260.hauntedHotels.model.Challenge;
 import byui.cit260.hauntedHotels.model.Player;
-import byui.cit260.hauntedHotels.model.Character;
+import byui.cit260.hauntedHotels.enums.Actor;
 import byui.cit260.hauntedHotels.model.Game; 
 import byui.cit260.hauntedHotels.model.HotelLocation;
 import byui.cit260.hauntedHotels.model.Map;
 import byui.cit260.hauntedHotels.model.InventoryItems;
-import byui.cit260.hauntedHotels.model.RoomScene;
+import byui.cit260.hauntedHotels.model.Scene;
 import byui.cit260.hauntedHotels.view.StartProgramView;
+import java.io.PrintWriter;
 
 
 /**
@@ -52,6 +53,22 @@ public class HauntedHotels {
     }
 
     public static void setGame(Game g) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public static Object getMap() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public static Object setMap() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static PrintWriter getOutFile() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static PrintWriter getLogFile() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
