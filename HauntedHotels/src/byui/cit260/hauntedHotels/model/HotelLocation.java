@@ -17,11 +17,9 @@ import java.io.Serializable;
 //import java.io.Serializable;
 //import java.util.ArrayList;
 
-/**
- *
- * @author jacksonrkj
- */
-public class HotelLocation implements Serializable {
+
+    
+ public class HotelLocation implements Serializable {
 
     private int row;
     private int column;
@@ -30,7 +28,7 @@ public class HotelLocation implements Serializable {
     private ArrayList<Actor> actors;
     
 
-    public HotelLocation(int row, int column, Scene scene, ArrayList<Actor> actors) {
+    public Location(int row, int column, Scene scene, ArrayList<Actor> actors) {
         this.row = row;
         this.column = column;
         this.visited = false;
@@ -40,7 +38,7 @@ public class HotelLocation implements Serializable {
     
 
     public HotelLocation() {
-        this.actors = new ArrayList<>();
+        this.actors = new ArrayList<Actor>();
     }
 
     public HotelLocation(int row, int column) {
@@ -48,31 +46,99 @@ public class HotelLocation implements Serializable {
         this.column = column;
     }
 
-/*    Object getItem() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }*/
-    
-    void setColumn(int column) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int getRow() {
+        return row;
     }
-    
-    void setRow(int row) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+    public void setRow(int row) {
+        this.row = row;
     }
-    
-    void setVisited(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+    public int getColumn() {
+        return column;
+    }
+
+    public void setColumn(int column) {
+        this.column = column;
     }
     
     public boolean isVisited() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return visited;
+    }
+
+    public void setVisited(boolean visited) {
+        this.visited = visited;
     }
     
     public Scene getScene() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
+    public ArrayList<Actor> getActors() {
+        return actors;
+    }
+
+    public void setActors(ArrayList<Actor> actors) {
+        this.actors = actors;
+    }
+    
+    public void removeActor(Actor actor) {
+        if (actor == null) {
+            return;
+        }
+        this.actors.remove(actor);
+    }
+    
+        
+    public void addActor(Actor actor) {
+        if (actor == null || this.actors.contains(actor)) {
+            return;
+        }
+            
+        this.actors.add(actor);
+    }
+    
+
+    @Override
+    public String toString() {
+        return "Location{" + "row=" + row + ", column=" + column + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 67 * hash + this.row;
+        hash = 67 * hash + this.column;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Location other = (Location) obj;
+        if (this.row != other.row) {
+            return false;
+        }
+        if (this.column != other.column) {
+            return false;
+        }
+        return true;
     }
     
     
+
+        
+}
+   
     
 /*    
 >>>>>>> origin/master

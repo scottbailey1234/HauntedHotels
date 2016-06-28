@@ -13,7 +13,7 @@ import java.util.Objects;
  * @author scottbailey1234
  */
 public class Player implements Serializable {
-  
+
     private String name;
     private double time;
 

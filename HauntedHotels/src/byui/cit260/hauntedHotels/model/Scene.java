@@ -14,11 +14,13 @@ import java.util.Objects;
 public class Scene implements Serializable {
     
     private int roomNumber;
+    private String description;
     private String mapSymbol;
     private String roomBackgroundInfo;
     private int roomChallenge;
     private String blockedLocation;
     private String displaySymbol;
+    private boolean blocked;
 
     public Scene() {
     }
@@ -64,7 +66,21 @@ public class Scene implements Serializable {
     public void setDisplaySymbol(String displaySymbol) {
         this.displaySymbol = displaySymbol;
     }
+    public String getDescription() {
+        return description;
+    }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
+    public boolean isBlocked() {
+        return blocked;
+    }
+
+    public void setBlocked(boolean blocked) {
+        this.blocked = blocked;
+    }
     @Override
     public int hashCode() {
         int hash = 5;

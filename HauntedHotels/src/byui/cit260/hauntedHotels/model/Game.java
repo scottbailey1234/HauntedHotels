@@ -5,6 +5,7 @@
  */
 package byui.cit260.hauntedHotels.model;
 
+import java.awt.Point;
 import java.util.Objects;
 
 /**
@@ -20,6 +21,7 @@ public class Game implements Serializable {
     private Player player;
     private String[] characters;
     private Map map;
+    private Point[] actorsLocation;
 
     public Game() {
     }
@@ -63,6 +65,14 @@ public class Game implements Serializable {
 
     public void setTotalChallenges(double totalChallenges) {
         this.totalChallenges = totalChallenges;
+    }
+    
+    public Point[] getActorsLocation() {
+        return actorsLocation;
+    }
+
+    public void setActorsLocation(Point[] actorsLocation) {
+        this.actorsLocation = actorsLocation;
     }
 
     @Override

@@ -23,7 +23,13 @@ public class InventoryItems implements java.io.Serializable {
     public InventoryItems(String description, double quantityInStock, double requiredAmount) {
         this.description = description;
     }
+    public String getDescription() {
+        return description;
+    }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     @Override
     public String toString() {
@@ -47,10 +53,6 @@ public class InventoryItems implements java.io.Serializable {
         }
         final InventoryItems other = (InventoryItems) obj;
         return true;
-    }
-
-    public void setItem(String all_work_and_no_play_makes_Jack_a_dull_bo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

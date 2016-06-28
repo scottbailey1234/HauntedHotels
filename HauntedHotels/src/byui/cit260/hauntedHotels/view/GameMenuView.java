@@ -106,6 +106,7 @@ public class GameMenuView extends View {
         this.printRowDivider(out, noColumns);
     }  
 
+
     private void displayHousekeeping() {
         // Create HousekeepingMenuView object
         HousekeepingMenuView housekeepingMenuView = new HousekeepingMenuView();

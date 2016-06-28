@@ -8,7 +8,9 @@ package byui.cit260.hauntedHotels.model;
 /**
  *
  * @author scottbailey1234
- */public class Map implements java.io.Serializable {
+ */
+
+public class Map implements java.io.Serializable {
     
     private int noOfRows;
     private int noOfColumns;

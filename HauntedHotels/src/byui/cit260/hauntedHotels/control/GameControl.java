@@ -13,9 +13,6 @@ import byui.cit260.hauntedHotels.model.InventoryItems;
 import byui.cit260.hauntedHotels.model.Map;
 import byui.cit260.hauntedHotels.model.Player;
 import hauntedhotels.HauntedHotels;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 
 /**
@@ -24,6 +21,9 @@ import java.util.List;
  */
 public class GameControl {
 
+    public GameControl() {
+    }
+    
     public static void createNewGame(Player player) 
             throws MapControlException {
         
@@ -36,21 +36,22 @@ public class GameControl {
        game.setMap(map); // save map in game
 
        // move actors to starting position in the map
-       Player[] actors = Player.values();
+       Actor[] actors = Actor.values();
        
        MapControl.moveActorsToStartingLocation(map, actors);    
     }    
-    public static List<InventoryItems> createInventoryList() {
-        // created array(list) of inventory items    
 
-        List<InventoryItems> itemType = new ArrayList<>();
+    
+    public static InventoryItems[] createInventoryList() {
+        // created array(list) of inventory items    
+        InventoryItems[] inventory = 
+            new InventoryItems[Constants.NUMBER_OF_INVENTORY_ITEMS];
         
         InventoryItems typewriter = new InventoryItems();
-        typewriter.setItem("All work and no play makes Jack a dull boy.");
-        itemType.add(typewriter);
-        
-        return itemType;
-        
+        typewriter.setDescription("Typewriter");
+        inventory[Item.typewriter.ordinal()] = typewriter;
+    
+        return inventory;
     }
 
     public static HotelLocation[][] getMapLocations() {
@@ -79,7 +80,7 @@ public class GameControl {
         }
         
         return actors;
-    }
+}
 /*
     public static InventoryItems[] getSortedInventoryList() {
         
