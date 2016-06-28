@@ -14,6 +14,7 @@ import byui.cit260.hauntedHotels.model.Map;
 import byui.cit260.hauntedHotels.model.Player;
 import hauntedhotels.HauntedHotels;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -144,13 +145,13 @@ public class GameControl {
             
             do {
                        
-                int row = (int) (Math.random() * Map.NUM_ROWS);
-                int col = (int) (Math.random() * Map.NUM_COLS);
+                int row = ((int) Math.random() * Map.NUM_ROWS);
+                int col = ((int) Math.random() * Map.NUM_COLS);
                 
                     success = false;
                       
-                if(map.getHotelLocation(row, col).getInventoryItems() == null) {
-                    map.getHotelLocation(row, col).setInventoryItems(i);                
+                if(map.getLocation(row, col).getCharacter() == null) {
+                    map.getLocation(row, col).setItem(i);                
                     success = true;
                 }
             
@@ -160,7 +161,14 @@ public class GameControl {
     
     }    
     
-    public static List<InventoryItems> createInventoryItemsList() {
+    public static void sortAlphabetically() {
+        
+        Character[] values = Character.values();
+         Collections.sort(values); 
+         for(Character value: values)
+            System.out.println(value);
+    }
+    public static List<InventoryItems> createItemList() {
         
         List<InventoryItems> itemType = new ArrayList<>();
         
@@ -210,4 +218,3 @@ public class GameControl {
     public static HotelLocation[][] getMapLocations() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }*/
-}
