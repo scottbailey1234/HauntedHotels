@@ -5,12 +5,14 @@
  */
 package byui.cit260.hauntedHotels.control;
 
+import byui.cit260.hauntedHotels.model.Character;
 import byui.cit260.hauntedHotels.model.Game;
 import byui.cit260.hauntedHotels.model.InventoryItems;
 import byui.cit260.hauntedHotels.model.Map;
 import byui.cit260.hauntedHotels.model.Player;
 import hauntedhotels.HauntedHotels;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -62,7 +64,7 @@ public class GameControl {
                 
                     success = false;
                       
-                if(map.getLocation(row, col).getHero() == null) {
+                if(map.getLocation(row, col).getCharacter() == null) {
                     map.getLocation(row, col).setItem(i);                
                     success = true;
                 }
@@ -73,6 +75,13 @@ public class GameControl {
     
     }    
     
+    public static void sortAlphabetically() {
+        
+        Character[] values = Character.values();
+         Collections.sort(values); 
+         for(Character value: values)
+            System.out.println(value);
+    }
     public static List<InventoryItems> createItemList() {
         
         List<InventoryItems> itemList = new ArrayList<>();
@@ -124,4 +133,3 @@ public class GameControl {
         
     
     }*/
-}

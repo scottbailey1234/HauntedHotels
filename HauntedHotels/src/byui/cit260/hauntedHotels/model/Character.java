@@ -30,6 +30,7 @@ public enum Character implements Serializable{
     }
 
     
+    
     /*public String getName() {
         return name;
     }
