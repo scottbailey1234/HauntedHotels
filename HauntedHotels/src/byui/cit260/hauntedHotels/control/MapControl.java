@@ -31,7 +31,7 @@ public class MapControl {
         // create a list of the different scenes in the game
         Scene[] scenes = createScenes();
         
-        // assign the different scenes to lofations in the map
+        // assign the different scenes to locations in the map
         assignScenesToLocations(map, scenes);
         
         return map;

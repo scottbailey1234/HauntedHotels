@@ -5,7 +5,9 @@
  */
 package byui.cit260.hauntedHotels.model;
 
+import byui.cit260.hauntedHotels.enums.Actor;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -15,6 +17,8 @@ import java.util.Objects;
 public class Player implements Serializable {
 
     private String name;
+    List<InventoryItems> inventory;
+    List<Actor> team;
     private double time;
 
     public Player() {

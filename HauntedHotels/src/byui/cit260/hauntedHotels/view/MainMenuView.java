@@ -53,16 +53,16 @@ public class MainMenuView extends View {
     }
      
 
-    private void startNewGame() {
-                
-/*        try {   
+    private void startNewGame(){
+
+        try {   
             // create a new game
             GameControl.createNewGame(HauntedHotels.getPlayer());    
         } catch (MapControlException mce) {
             ErrorView.display("MainMenuView", mce.getMessage());
             return;
         } 
-*/
+
         // display the game menu
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();

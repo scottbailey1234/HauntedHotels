@@ -12,7 +12,9 @@ import byui.cit260.hauntedHotels.model.HotelLocation;
 import byui.cit260.hauntedHotels.model.InventoryItems;
 import byui.cit260.hauntedHotels.model.Map;
 import byui.cit260.hauntedHotels.model.Player;
+import byui.cit260.hauntedHotels.model.Scene;
 import hauntedhotels.HauntedHotels;
+import java.util.Collections;
 
 
 /**
@@ -20,7 +22,7 @@ import hauntedhotels.HauntedHotels;
  * @author scottbailey1234
  */
 public class GameControl {
-
+    private Map map;
     public GameControl() {
     }
     
@@ -62,7 +64,8 @@ public class GameControl {
     public static InventoryItems[] getInventory() {
         return HauntedHotels.getCurrentGame().getInventory();
     } 
-  
+
+// Scott Individual Assignment  
     public Actor[]  getSortActorList(Actor[] actors) {
         
         // using a BubbleSort to sort the list of actors by name
@@ -80,6 +83,34 @@ public class GameControl {
         }
         
         return actors;
+    }
+    
+    public Scene[]  getSortSceneList(Scene[] scenes) {
+        
+        // using a BubbleSort to sort the list of scenes by name
+        Scene tempScene;
+        for (int i = 0; i < scenes.length-1; i++) {
+            for (int j = 0; j < scenes.length-1-i; j++) {
+                String currentActorsName = scenes[j].toString();
+                String nextActorsNames = scenes[j + 1].toString();
+                if ( currentActorsName.compareToIgnoreCase(nextActorsNames) > 0) {
+                    tempScene = scenes[j];
+                    scenes[j] = scenes[j+1];
+                    scenes[j+1] = tempScene;
+                }
+            }
+        }
+        
+        return scenes;
+    }
+    // Victor Individual Assignment
+        public static void sortAlphabetically() {
+        
+        Character[] values = Character.values();
+         Collections.sort(values); 
+         for(Character value: values)
+            System.out.println(value);
+    }
 }
 /*
     public static InventoryItems[] getSortedInventoryList() {
@@ -162,13 +193,7 @@ public class GameControl {
     
     }    
     
-    public static void sortAlphabetically() {
-        
-        Character[] values = Character.values();
-         Collections.sort(values); 
-         for(Character value: values)
-            System.out.println(value);
-    }
+
     public static List<InventoryItems> createItemList() {
         
         List<InventoryItems> itemType = new ArrayList<>();
