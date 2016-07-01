@@ -12,13 +12,16 @@ import hauntedhotels.HauntedHotels;
 import java.io.PrintWriter;
 
 public class GameMenuView extends View {
-     
+        
+
     public GameMenuView() {
         super("\n"
                + "\n--------------------------------------------"
                + "\n| Game Menu                                |"
                + "\n--------------------------------------------"
                + "\nM - View the Map"
+               + "\nL - View a Location"
+               + "\nN - Move actor to a new location"
                + "\nH - View Housekeeping Inventory Menu"
                + "\nW - View Weapons Inventory Menu"               
                + "\nTR - Test RevPar"
@@ -37,6 +40,12 @@ public class GameMenuView extends View {
             case "M": // display the map
                 this.displayMap(); 
                 break;
+            case "L": // // view current location
+                this.viewLocation(); 
+                break;
+            case "N": // move actor to new location
+                this.moveActors(); 
+                break;                
             case "H": // display housekeeping inventory
                 this.displayHousekeeping();
                 break;
@@ -105,7 +114,15 @@ public class GameMenuView extends View {
         
         this.printRowDivider(out, noColumns);
     }  
+    private void moveActors() {
+        MoveActorView moveActorView = new MoveActorView();     
+        moveActorView.display();     
+    }
 
+    private void viewLocation() {
+        ViewLocationView viewLocationView = new ViewLocationView();
+        viewLocationView.display();
+    }
 
     private void displayHousekeeping() {
         // Create HousekeepingMenuView object
