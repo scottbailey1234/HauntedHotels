@@ -13,6 +13,7 @@ import byui.cit260.hauntedHotels.model.HotelLocation;
 import byui.cit260.hauntedHotels.model.Map;
 import byui.cit260.hauntedHotels.model.InventoryItems;
 import byui.cit260.hauntedHotels.model.Scene;
+import byui.cit260.hauntedHotels.view.GameMenuView;
 import byui.cit260.hauntedHotels.view.StartProgramView;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -35,8 +36,8 @@ public class HauntedHotels {
     
     public static void main(String[] args) { 
 
-        try {
-            
+       
+            try{
             // open charcter stream files for end user input and output
             HauntedHotels.inFile = 
                     new BufferedReader(new InputStreamReader(System.in));
@@ -46,20 +47,23 @@ public class HauntedHotels {
             // open log file
             String filePath = "log.txt";
             HauntedHotels.logFile = new PrintWriter(filePath);
-
-
+            }
+            catch(Exception e){
+                System.out.println("ERROR");
+            }
             // create StartProgramView and start the program
             StartProgramView startProgramView = new StartProgramView();
+            try{
             startProgramView.display();
-            return; 
-
+         
         } catch (Throwable e) {
               
                 System.out.println("Exception: " + e.toString() + 
                                    "\nCause: " + e.getCause() + 
                                    "\nMessage: " + e.getMessage());
 
-                e.printStackTrace();;
+                e.printStackTrace();
+                startProgramView.display();
         }
 
         finally {
