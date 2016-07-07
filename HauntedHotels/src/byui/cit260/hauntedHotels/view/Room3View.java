@@ -6,6 +6,9 @@
 package byui.cit260.hauntedHotels.view;
 
 import byui.cit260.hauntedHotels.control.ChallengeControl;
+import byui.cit260.hauntedHotels.exceptions.ChallengeControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -49,10 +52,21 @@ public class Room3View extends View {
 
     @Override
     public boolean doAction(String value) {
-        double percentBooked = Double.parseDouble(value);        
+      try{
+        double percentBooked = Double.parseDouble(value);  
+      }catch(NumberFormatException nf){
+          System.out.println("\nYou must enter a valid number."
+                  + " Try again or enter Q to quit.");     
+      }  
       ChallengeControl challengeControl = new ChallengeControl();
       
-      double floorRate = challengeControl.rateFloor(percentBooked);
+      double floorRate = 0;
+        try {
+          double percentBooked = 0;
+            floorRate = challengeControl.rateFloor(percentBooked);
+        } catch (ChallengeControlException ex) {
+            System.out.println(ex.getMessage());
+        }
       if (floorRate == -1){
           System.out.println("\nPercent of rooms booked must be more than 0"
                            + "\nand less than or equal to 100. Please try again");

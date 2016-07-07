@@ -7,7 +7,10 @@ package byui.cit260.hauntedHotels.view;
 
 
 import byui.cit260.hauntedHotels.control.ChallengeControl;
+import byui.cit260.hauntedHotels.exceptions.ChallengeControlException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -37,7 +40,12 @@ public class Room1View extends View{
       ChallengeControl challengeControl = new ChallengeControl();
        
       
-      double totRevPar = challengeControl.calcRevpar(totRev);
+      double totRevPar = 0;
+        try {
+            totRevPar = challengeControl.calcRevpar(totRev);
+        } catch (ChallengeControlException ex) {
+            System.out.println(ex.getMessage());
+        }
       
         if (totRevPar == -1){
           

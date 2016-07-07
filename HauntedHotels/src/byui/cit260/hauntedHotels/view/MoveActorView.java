@@ -71,10 +71,10 @@ public class MoveActorView extends View {
         
         boolean done = false;
         do {
-            this.console.println("\nYou can move up (U), down(D), left(L) or right (R)");
+            System.out.println("\nYou can move up (U), down(D), left(L) or right (R)");
             try {
                 // prompt for and get the row and column numbers
-                this.console.println("\nEnter the direction and distance to move (e.g. U 2) ");
+                System.out.println("\nEnter the direction and distance to move (e.g. U 2) ");
                 Movement movement = this.getCoordinates(); // get the row and column
                 if (movement == null) // entered "Q" to quit
                     break;
@@ -96,7 +96,7 @@ public class MoveActorView extends View {
                                     +   this.getBlockedMessage(locationDescription)
                                     +   "\n\n" + actor + " is currently in position " 
                                     +   newPosition.x + ", " + newPosition.y;  
-                    this.console.println(message);
+                    System.out.println(message);
                     
                 }
                 else {
@@ -104,7 +104,7 @@ public class MoveActorView extends View {
                     message = actor + " was successfully moved to position " 
                             + newPosition.x + ", " + newPosition.y + ".\n"
                             + this.getBlockedMessage(locationDescription);
-                    this.console.println(message);                
+                    System.out.println(message);                
                 }
                 
                 done = true;
