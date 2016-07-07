@@ -5,6 +5,7 @@
  */
 package byui.cit260.hauntedHotels.control;
 
+import byui.cit260.hauntedHotels.exceptions.ChallengeControlException;
 import java.util.Scanner;
 
 /**
@@ -32,10 +33,14 @@ public class ChallengeControl {
     }
         
     // calculate Revpar    
-    public double calcRevpar(double totRev) {
+    public double calcRevpar(double totRev) throws ChallengeControlException{
         
         if (totRev < 1 || totRev > 100000000) { // total revenue is out of range?
-                return -1;
+                throw new ChallengeControlException ("\n Total Income must be greater than 1"
+                           + "\n and less than 100 million or "
+                           + "\n 100,000,000. Please try again... Hint: enter "
+                           + "\n an amount equal to or larger"
+                           + "\n than 3650000");
         }
 
         double r = 365 * 100;
@@ -45,9 +50,11 @@ public class ChallengeControl {
 
     }
     
-    public double rateFloor(double percentBook){
+    public double rateFloor(double percentBook) throws ChallengeControlException{
         if (percentBook < 0 || percentBook >100) {
-            return -1;
+            
+            throw new ChallengeControlException("\nPercent of rooms booked must be more than 0"
+                                              + "\nand less than or equal to 100. Please try again");
         }
 
         double floorRate = ((100 * 70) * (percentBook / 100))/100;
