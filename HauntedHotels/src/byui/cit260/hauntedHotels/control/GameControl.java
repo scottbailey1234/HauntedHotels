@@ -6,6 +6,7 @@
 package byui.cit260.hauntedHotels.control;
 
 import byui.cit260.hauntedHotels.enums.Actor;
+import byui.cit260.hauntedHotels.exceptions.GameControlException;
 import byui.cit260.hauntedHotels.exceptions.MapControlException;
 import byui.cit260.hauntedHotels.model.Game;
 import byui.cit260.hauntedHotels.model.HotelLocation;
@@ -14,6 +15,12 @@ import byui.cit260.hauntedHotels.model.Map;
 import byui.cit260.hauntedHotels.model.Player;
 import byui.cit260.hauntedHotels.model.Scene;
 import hauntedhotels.HauntedHotels;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Collections;
 
 
@@ -40,7 +47,7 @@ public class GameControl {
        // move actors to starting position in the map
        Actor[] actors = Actor.values();
        
-       MapControl.moveActorsToStartingLocation(map, actors);    
+//       MapControl.moveActorsToStartingLocation(map, map);    
     }    
 
     
@@ -103,15 +110,50 @@ public class GameControl {
         
         return scenes;
     }
+        public static void saveGame(Game game, String filepath) 
+            throws GameControlException {
+
+        try( FileOutputStream fops = new FileOutputStream(filepath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(game); // write the game object out to file
+        }
+        catch(IOException e) {
+            throw new GameControlException(e.getMessage());
+        } 
+    }
+
+    
+    public static void getSavedGame(String filepath) 
+                        throws GameControlException {
+        Game game = null;
+
+        try( FileInputStream fips = new FileInputStream(filepath)) {
+            ObjectInputStream output = new ObjectInputStream(fips);
+            
+            game = (Game) output.readObject(); // read the game object from file
+        }
+        catch(FileNotFoundException fnfe) {
+            throw new GameControlException(fnfe.getMessage());
+        }
+        catch(Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+
+       // close the outuput file
+       HauntedHotels.setCurrentGame(game); // save in HauntedHotels
+    }
+}
+    
     // Victor Individual Assignment
-        public static void sortAlphabetically() {
+/*        public static void sortAlphabetically() {
         
         Character[] values = Character.values();
          Collections.sort(values); 
          for(Character value: values)
             System.out.println(value);
     }
-}
+}*/
 /*
     public static InventoryItems[] getSortedInventoryList() {
         

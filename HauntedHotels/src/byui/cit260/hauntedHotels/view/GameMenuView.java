@@ -61,12 +61,12 @@ public class GameMenuView extends View {
             case "TR3": // display RateFloorView
                 this.displayRoom3();
                 break;
+
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
-                break;
+                ErrorView.display("GameMenuView", "*** Invalid selection *** Try again");
         }
-        
         return false;
+
     }
 
     private void displayMap() {

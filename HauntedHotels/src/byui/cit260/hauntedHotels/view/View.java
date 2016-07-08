@@ -5,12 +5,61 @@
  */
 package byui.cit260.hauntedHotels.view;
 
+
+import hauntedhotels.HauntedHotels;
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 
 
 public abstract class View implements ViewInterface {
     
-    protected String displayMessage;
+    private String promptMessage;
+    private boolean input = true;
+    
+    protected final BufferedReader keyboard = HauntedHotels.getInFile();
+    protected final PrintWriter console = HauntedHotels.getOutFile();
+
+    public View() {
+        this.input = true;
+    }
+    
+    public View(boolean input, String message) {
+        this.input = input;
+        this.promptMessage = message;
+    }
+
+    public View(String message) {
+        this.promptMessage = message;
+        this.input = true;
+    }
+
+    public String getPromptMessage() {
+        return promptMessage;
+    }
+
+    public void setPromptMessage(String message) {
+        this.promptMessage = message;
+    }
+    
+    
+    public void display() {
+        String value = "";
+        boolean done = false;
+        
+        do { 
+            this.console.println(this.promptMessage); // display the prompt promptMessage
+            if (this.input) {
+                value = this.getInput(); // get the user's selection
+            }
+            done = this.doAction(value); // do action based on selection        
+        } while (!done);
+
+    }
+    
+        
+/*    protected String displayMessage;
+    private Object keyboard;
     
     public View() {
     }
@@ -32,31 +81,40 @@ public abstract class View implements ViewInterface {
             done = this.doAction(value);
         } while (!done); // exit the view when done == true
     }
-    
+*/    
     @Override
     public String getInput() {
         
-        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
+//        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
         boolean valid = false; //initialize to not valid
         String value = null;
+        try {
         
         // while a valid name has not been retrieved        
         while (!valid) { // loop while an invalid value is enter
             
             // prompt for the player's name
-            System.out.println("\n" + this.displayMessage);
+//            System.out.println("\n" + this.displayMessage);
             
             // get the value entered from the keyboard
-            value = keyboard.nextLine(); // get next line typed on keyboard
+            value = keyboard.readLine(); // get next line typed on keyboard
             value = value.trim(); // trim off leading and trailing blanks
             
             if (value.length() < 1) { // blank value entered
-                System.out.println("\n*** You must enter a value *** ");
+                ErrorView.display(this.getClass().getName(),
+                                "You must enter a value.");
+//                System.out.println("\n*** You must enter a value *** ");
                 continue;
             }
             
             break; // end the loop
         }
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(),
+                            "Error reading input: " + e.getMessage());
+//            System.out.println("Error reading input: " + e.getMessage());
+        }
+    
         
         return value; // return the value entered
     }

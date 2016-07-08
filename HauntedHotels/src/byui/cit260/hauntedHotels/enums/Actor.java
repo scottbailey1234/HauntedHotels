@@ -5,6 +5,7 @@
  */
 package byui.cit260.hauntedHotels.enums;
 
+import java.awt.Point;
 import java.io.Serializable;
 
 /**
@@ -27,6 +28,10 @@ public enum Actor implements Serializable {
     public String getDescription() {
         return description;
     }   
+
+    public void getCoordinates() {
+        System.out.println("\n getCoordinates function called");
+    }
     
 }
 

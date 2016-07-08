@@ -25,7 +25,7 @@ import java.io.Serializable;
     private ArrayList<Actor> actors;
     
 
-    public Location(int row, int column, Scene scene, ArrayList<Actor> actors) {
+    public HotelLocation(int row, int column, Scene scene, ArrayList<Actor> actors) {
         this.row = row;
         this.column = column;
         this.visited = false;
@@ -121,7 +121,7 @@ import java.io.Serializable;
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Location other = (Location) obj;
+        final HotelLocation other = (HotelLocation) obj;
         if (this.row != other.row) {
             return false;
         }
