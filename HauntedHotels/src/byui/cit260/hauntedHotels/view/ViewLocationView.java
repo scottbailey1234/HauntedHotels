@@ -26,7 +26,6 @@ public class ViewLocationView extends View {
     }
 
 
-    @Override
     public boolean doAction(Object obj) {
         String choice = (String) obj;
         try{
@@ -41,7 +40,7 @@ public class ViewLocationView extends View {
             this.displayLocationInfo(coordinates, location);
 
         } catch (ViewException ex) {
-                this.console.println(ex.getMessage());
+                System.out.println(ex.getMessage());
                 return false;
         }       
 
@@ -84,22 +83,22 @@ public class ViewLocationView extends View {
         }
         
         if (location.getScene() == null) {
-            this.console.println("\nThis location is empty");
+            System.out.println("\nThis location is empty");
             return;
         }
         
         String message = "\nLocation (" + coordinates.x + ", " + coordinates.y + ")\n"
                          + this.getBlockedMessage(location.getScene().getDescription());
-        this.console.println(message);
+        System.out.println(message);
    
         ArrayList<Actor> actorsInLocation = location.getActors();
         if (actorsInLocation.size() < 1) {
-            this.console.println("\nThere are no actors in this location");
+            System.out.println("\nThere are no actors in this location");
         }
         else {
-            this.console.println("\nThe following actors are currently in this location");
+            System.out.println("\nThe following actors are currently in this location");
             for (Actor actor : actorsInLocation) {
-                this.console.println("   " + actor);        
+                System.out.println("   " + actor);        
             }
         }
         

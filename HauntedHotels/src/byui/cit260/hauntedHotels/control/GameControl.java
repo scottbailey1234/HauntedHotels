@@ -6,6 +6,7 @@
 package byui.cit260.hauntedHotels.control;
 
 import byui.cit260.hauntedHotels.enums.Actor;
+import byui.cit260.hauntedHotels.enums.Item;
 import byui.cit260.hauntedHotels.exceptions.GameControlException;
 import byui.cit260.hauntedHotels.exceptions.MapControlException;
 import byui.cit260.hauntedHotels.model.Game;

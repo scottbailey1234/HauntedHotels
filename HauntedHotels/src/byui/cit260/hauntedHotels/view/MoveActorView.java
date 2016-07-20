@@ -37,7 +37,6 @@ public class MoveActorView extends View {
     }
 
 
-    @Override
     public boolean doAction(Object obj) {
 
         Actor actor; 

@@ -107,7 +107,7 @@ public class MapControl {
 
     
 }
-    public static void moveActorsToStartingLocation(Map map) 
+    /* public static void moveActorsToStartingLocation(Map map) 
                             throws MapControlException {
         Actor[] actors = Actor.values();
         // for every actor
