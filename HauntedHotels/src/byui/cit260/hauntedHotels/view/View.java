@@ -85,7 +85,7 @@ public abstract class View implements ViewInterface {
     @Override
     public String getInput() {
         
-//        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
+//      Scanner keyboard = new Scanner(System.in); //get infile for keyboard
         boolean valid = false; //initialize to not valid
         String value = null;
         try {
